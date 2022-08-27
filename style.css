@@ -1,7 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    padding: 0;
+}
+
 body {
     font-family: sans-serif;
     color: rgb(206, 206, 206);
     background-color: black;
+    width: fit-content;
+    margin: auto;
+    padding: 70px 0;
+}
+
+.container {
+    padding: 0 15px;
 }
 
 .todoForm {
@@ -15,7 +30,26 @@ body {
     padding: 5px;
 }
 
-.LS-input-err{
+@media screen and (max-width: 775px) {
+    .todoForm {
+        display: flex;
+        flex-direction: column;
+    }
+    #LS-submit {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    body {
+        padding: 20px 0;
+    }
+    #LS-input {
+        width: 300px;
+    }
+}
+
+.LS-input-err {
     text-align: center;
     color: rgb(219, 88, 88);
 }
@@ -36,7 +70,9 @@ body {
 .todo-item {
     display: flex;
     align-items: center;
-    
+
+    max-width: 400px;
+    width: 100%;
     padding: 10px;
     margin-bottom: 20px;
 
