@@ -1,10 +1,9 @@
 const LSInput = document.querySelector("#LS-input")
 const LSSubmit = document.querySelector("#LS-submit")
 const LSTodo = document.querySelector(".LS-todo")
+const LSErr = document.querySelector(".LS-input-err")
 
 let todoData = JSON.parse(localStorage.getItem("todoData")) || []
-// console.log(todoData)
-// console.log(localStorage)
 
 const createTodo = (todo) => {
     const TODO = document.createElement("li")
@@ -19,10 +18,10 @@ const createTodo = (todo) => {
 
     return TODO
 }
-const createTodoData = todoText => {
+const createTodoData = (todoText) => {
     const todo = {
         todoId: Math.random(),
-        todoText: todoText, 
+        todoText: todoText,
     }
     todoData.push(todo)
     updateLocalStorage(todoData)
@@ -37,7 +36,7 @@ const insertTodo = (todo) => {
 }
 
 const renderTodo = () => {
-    LSTodo.innerHTML = ''
+    LSTodo.innerHTML = ""
     if (todoData) {
         todoData.forEach((todo) => {
             LSTodo.insertAdjacentElement("afterbegin", createTodo(todo))
@@ -48,9 +47,15 @@ renderTodo()
 
 const LSSubmitHandler = (e) => {
     e.preventDefault()
-    const todoText = LSInput.value
 
-    insertTodo(createTodo(createTodoData(todoText)))
+    if (LSInput.value.length >= 5) {
+        LSErr.textContent = ""
+        const todoText = LSInput.value
+        insertTodo(createTodo(createTodoData(todoText)))
+        LSInput.value = ""
+    } else {
+        LSErr.textContent = "Invalid todo length. Min length - 5 letters"
+    }   
 }
 const LSTodoClickHandler = (e) => {
     if (e.target.dataset.todoClose) {
