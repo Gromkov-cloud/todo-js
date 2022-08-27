@@ -55,7 +55,7 @@ const LSSubmitHandler = (e) => {
         LSInput.value = ""
     } else {
         LSErr.textContent = "Invalid todo length. Min length - 5 letters"
-    }   
+    }
 }
 const LSTodoClickHandler = (e) => {
     if (e.target.dataset.todoClose) {
