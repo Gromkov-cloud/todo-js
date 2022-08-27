@@ -1,0 +1,27 @@
+body {
+    font-family: sans-serif;
+}
+
+.todoForm {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.LS-todo {
+    max-width: 400px;
+    width: 100%;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    word-break: break-word;
+}
+
+.todo-close {
+    margin: 3px 0 0 20px;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
