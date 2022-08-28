@@ -67,5 +67,11 @@ const LSTodoClickHandler = (e) => {
     }
 }
 
+const onstorageHandler = (e) => {
+    todoData = JSON.parse(e.newValue)
+    renderTodo()
+}
+
 LSSubmit.addEventListener("click", (e) => LSSubmitHandler(e))
 LSTodo.addEventListener("click", (e) => LSTodoClickHandler(e))
+window.addEventListener("storage", (e) => onstorageHandler(e))
